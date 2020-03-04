@@ -1,22 +1,16 @@
 const core = require('@actions/core');
-const wait = require('./wait');
+const github = require('@actions/github');
+const collaborator = require('./collaborator');
 
 
-// most @actions toolkit packages have async methods
+const octokit = new github.GitHub(process.env.GITHUB_TOKEN);
+
+const username = github.context.actor;
+
 async function run() {
-  try { 
-    const ms = core.getInput('milliseconds');
-    console.log(`Waiting ${ms} milliseconds ...`)
-
-    core.debug((new Date()).toTimeString())
-    await wait(parseInt(ms));
-    core.debug((new Date()).toTimeString())
-
-    core.setOutput('time', new Date().toTimeString());
-  } 
-  catch (error) {
-    core.setFailed(error.message);
-  }
+    core.debug("Verifying that username is approved for running builds");
+    const usernames = core.getInput('users');
+    core.info(usernames);
 }
 
-run()
+
