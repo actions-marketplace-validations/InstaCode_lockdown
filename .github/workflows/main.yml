@@ -11,6 +11,4 @@ jobs:
       - name: Lockdown
         uses: ./ # Uses an action in the root directory
         with:
-          users:
-            - jason-edstrom
-            - dependabot-preview
+          users: jason-edstrom, dependabot-preview

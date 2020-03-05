@@ -6,7 +6,7 @@ branding:
   color: blue
 inputs:
   users:
-    description: list of users allowed to have builds
+    description: list of users allowed to have builds executed
     required: true
 runs:
   using: 'node12'

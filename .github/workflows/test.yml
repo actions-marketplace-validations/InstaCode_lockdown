@@ -21,8 +21,6 @@ jobs:
     steps:
       - uses: ./
         with:
-          users:
-            - jason-edstrom
-            - dependabot-preview
+          users: jason-edstrom, dependabot-preview
       - uses: actions/checkout@v1
 
