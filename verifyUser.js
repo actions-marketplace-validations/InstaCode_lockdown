@@ -1,15 +1,7 @@
-const core = require('@actions/core');
 
-
-function verifyUser(username) {
-    let input = core.getInput('users');
+function verifyUser(username, input) {
     let listOfUsernames = input.split(',');
-    for (const entry of listOfUsernames.entries()) {
-        if (username === entry){
-            return true;
-        }
-    }
-   return false;
+    return listOfUsernames.includes(username);
 }
 
 module.exports = verifyUser;

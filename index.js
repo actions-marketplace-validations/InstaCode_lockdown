@@ -8,7 +8,7 @@ async function run() {
     core.debug("Verifying that username ${username} is approved for running builds");
     const usernames = core.getInput('users');
     core.info(usernames);
-    const verified =  verifyUser(username);
+    const verified =  verifyUser(username, usernames);
 
     if (!verified)
     {
