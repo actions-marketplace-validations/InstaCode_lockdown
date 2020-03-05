@@ -1,6 +1,6 @@
-name: 'Lockdown'
+name: 'Lockdown CI Security'
 author: "InstaCode <jason@instacode.io>"
-description: 'Restrict build runs to specific teams or users.'
+description: 'Restrict build runs to specific users.'
 branding:
   icon: shield
   color: blue
