@@ -1,9 +1,9 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  lockdown_test:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Locking down the build
     steps:
       # To use this repository's private action, you must check out the repository
       - name: Checkout
