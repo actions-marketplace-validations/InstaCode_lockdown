@@ -6,7 +6,7 @@ const username = github.context.actor;
 
 async function run() {
     core.debug("Verifying that username ${username} is approved for running builds");
-    const usernames = core.getInput('users');
+    const usernames = core.getInput('users').trim();
     core.info(usernames);
     const verified =  verifyUser(username, usernames);
 
