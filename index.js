@@ -1,22 +1,20 @@
 const core = require('@actions/core');
-const wait = require('./wait');
+const github = require('@actions/github');
+const verifyUser = require('./verifyUser');
 
+const username = github.context.actor;
 
-// most @actions toolkit packages have async methods
 async function run() {
-  try { 
-    const ms = core.getInput('milliseconds');
-    console.log(`Waiting ${ms} milliseconds ...`)
+    core.debug("Verifying that username ${username} is approved for running builds");
+    const usernames = core.getInput('users').trim();
+    core.info(usernames);
+    const verified =  verifyUser(username, usernames);
 
-    core.debug((new Date()).toTimeString())
-    await wait(parseInt(ms));
-    core.debug((new Date()).toTimeString())
-
-    core.setOutput('time', new Date().toTimeString());
-  } 
-  catch (error) {
-    core.setFailed(error.message);
-  }
+    if (!verified)
+    {
+        core.setFailed("User " + username + "is not approved to execute builds on the pipeline");
+    }
 }
+run();
 
-run()
+

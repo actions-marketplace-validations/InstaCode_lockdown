@@ -1,7 +1,7 @@
 {
-  "name": "javascript-action",
+  "name": "lockdown",
   "version": "1.0.0",
-  "description": "JavaScript Action Template",
+  "description": "Restrict build triggering to a team or individual users",
   "main": "index.js",
   "scripts": {
     "lint": "eslint index.js",
@@ -10,21 +10,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/javascript-action.git"
+    "url": "git+https://github.com/InstaCode/lockdown.git"
   },
   "keywords": [
-    "GitHub",
-    "Actions",
-    "JavaScript"
+    "Repo",
+    "Build",
+    "Permissions"
   ],
-  "author": "GitHub",
+  "author": "InstaCode",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/actions/javascript-action/issues"
+    "url": "https://github.com/InstaCode/lockdown/issues"
   },
-  "homepage": "https://github.com/actions/javascript-action#readme",
+  "homepage": "https://github.com/InstaCode/lockdown#readme",
   "dependencies": {
-    "@actions/core": "^1.1.1"
+    "@actions/core": "^1.1.1",
+    "acorn": "^7.1.1",
+    "@actions/github": "latest"
   },
   "devDependencies": {
     "@zeit/ncc": "^0.20.5",
