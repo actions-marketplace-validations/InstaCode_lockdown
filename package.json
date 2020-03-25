@@ -1,12 +1,17 @@
 {
   "name": "lockdown",
   "version": "1.0.0",
+  "private": true,
   "description": "Restrict build triggering to a team or individual users",
-  "main": "index.js",
+  "main": "lib/main.js",
   "scripts": {
-    "lint": "eslint index.js",
-    "package": "ncc build index.js -o dist",
-    "test": "eslint index.js && jest"
+    "build": "tsc",
+    "format": "prettier --write **/*.ts",
+    "format-check": "prettier --check **/*.ts",
+    "lint": "eslint src/**/*.ts",
+    "pack": "ncc build",
+    "test": "jest",
+    "all": "npm run build && npm run format && npm run lint && npm run pack && npm test"
   },
   "repository": {
     "type": "git",
@@ -24,13 +29,25 @@
   },
   "homepage": "https://github.com/InstaCode/lockdown#readme",
   "dependencies": {
-    "@actions/core": "^1.2.3",
-    "acorn": "^7.1.1",
+    "@actions/core": "^1.2.0",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "eslint-plugin-flowtype": "^4.7.0",
+    "flow-bin": "^0.121.0",
     "@actions/github": "latest"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.21.1",
-    "eslint": "^6.8.0",
-    "jest": "^25.1.0"
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.7.12",
+    "@typescript-eslint/parser": "^2.8.0",
+    "@zeit/ncc": "^0.20.5",
+    "eslint": "^5.16.0",
+    "eslint-plugin-github": "^2.0.0",
+    "eslint-plugin-jest": "^22.21.0",
+    "jest": "^24.9.0",
+    "jest-circus": "^24.9.0",
+    "js-yaml": "^3.13.1",
+    "prettier": "^1.19.1",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.6.4"
   }
 }
