@@ -1,6 +1,6 @@
 # Lockdown CI Security
 
-![units-test](https://github.com/InstaCode/lockdown/workflows/units-test/badge.svg)
+![build-test](https://github.com/InstaCode/lockdown/workflows/build-test/badge.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=InstaCode_lockdown&metric=alert_status)](https://sonarcloud.io/dashboard?id=InstaCode_lockdown)
 
 This GitHub action restricts the build from continuing to execution unless the author of the commit/pull request is among a list of approved users.
