@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "private": true,
   "description": "Restrict build triggering to a team or individual users",
-  "main": "lib/main.js",
+  "main": "lib/main/main.js",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write **/*.ts",

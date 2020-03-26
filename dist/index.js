@@ -34,7 +34,7 @@ module.exports =
 /******/ 	// the startup function
 /******/ 	function startup() {
 /******/ 		// Load entry module and return exports
-/******/ 		return __webpack_require__(198);
+/******/ 		return __webpack_require__(998);
 /******/ 	};
 /******/
 /******/ 	// run startup
@@ -3306,37 +3306,6 @@ function paginatePlugin(octokit) {
 
 /***/ }),
 
-/***/ 156:
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
-
-"use strict";
-
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const github = __importStar(__webpack_require__(469));
-function verifyUser(username, input) {
-    const listOfUsernames = input.split(',');
-    return listOfUsernames.includes(username);
-}
-exports.verifyUser = verifyUser;
-function verifyOwner(username) {
-    const owner = github.context.repo.owner;
-    if (owner === username) {
-        return true;
-    }
-    return false;
-}
-exports.verifyOwner = verifyOwner;
-
-
-/***/ }),
-
 /***/ 168:
 /***/ (function(module) {
 
@@ -3513,42 +3482,6 @@ function checkMode (stat, options) {
 
   return ret
 }
-
-
-/***/ }),
-
-/***/ 198:
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
-
-"use strict";
-
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const core = __importStar(__webpack_require__(470));
-const github = __importStar(__webpack_require__(469));
-const verify = __importStar(__webpack_require__(156));
-const username = github.context.actor;
-function run() {
-    try {
-        core.info('Verifying that username ${username} is approved for running builds');
-        const usernames = core.getInput('users').trim();
-        core.debug(usernames);
-        const verified = verify.verifyUser(username, usernames);
-        if (!verified) {
-            core.setFailed(`User ${username} is not approved to execute builds on the pipeline`);
-        }
-    }
-    catch (error) {
-        core.setFailed(error.message);
-    }
-}
-run();
 
 
 /***/ }),
@@ -8742,6 +8675,37 @@ module.exports = (promise, onFinally) => {
 		})
 	);
 };
+
+
+/***/ }),
+
+/***/ 703:
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
+
+"use strict";
+
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const github = __importStar(__webpack_require__(469));
+function verifyUser(username, input) {
+    const listOfUsernames = input.split(',');
+    return listOfUsernames.includes(username);
+}
+exports.verifyUser = verifyUser;
+function verifyOwner(username) {
+    const owner = github.context.repo.owner;
+    if (owner === username) {
+        return true;
+    }
+    return false;
+}
+exports.verifyOwner = verifyOwner;
 
 
 /***/ }),
@@ -25404,6 +25368,42 @@ function onceStrict (fn) {
   f.called = false
   return f
 }
+
+
+/***/ }),
+
+/***/ 998:
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
+
+"use strict";
+
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const core = __importStar(__webpack_require__(470));
+const github = __importStar(__webpack_require__(469));
+const verify = __importStar(__webpack_require__(703));
+const username = github.context.actor;
+function run() {
+    try {
+        core.info('Verifying that username ${username} is approved for running builds');
+        const usernames = core.getInput('users').trim();
+        core.debug(usernames);
+        const verified = verify.verifyUser(username, usernames);
+        if (!verified) {
+            core.setFailed(`User ${username} is not approved to execute builds on the pipeline`);
+        }
+    }
+    catch (error) {
+        core.setFailed(error.message);
+    }
+}
+run();
 
 
 /***/ })
