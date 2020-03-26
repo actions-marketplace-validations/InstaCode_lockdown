@@ -7,5 +7,8 @@ module.exports = {
   transform: {
     '^.+\\.ts$': 'ts-jest'
   },
-  verbose: true
+  verbose: true,
+  testResultsProcessor: 'jest-sonar-reporter',
+  collectCoverage: true,
+  coverageDirectory: './reports/coverage'
 }

@@ -1,4 +1,4 @@
 export function verifyUser(username: string, input: string): boolean {
-  const listofusername = input.split(',')
-  return listofusername.includes(username)
+  const listOfUsernames = input.split(',')
+  return listOfUsernames.includes(username)
 }
