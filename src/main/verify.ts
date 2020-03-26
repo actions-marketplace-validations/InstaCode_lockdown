@@ -8,9 +8,6 @@ export function verifyUser(username: string, input: string): boolean {
 
 export function verifyOwner(username: string): boolean {
   const owner = github.context.repo.owner
-  core.info(`Owner: ${owner}`)
-  if (owner === username) {
-    return true
-  }
-  return false
+  core.debug(`Owner: ${owner}`)
+  return owner === username;
 }

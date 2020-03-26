@@ -16,6 +16,6 @@ describe('Verify User Tests', function () {
 
 describe('Verify Owner Tests', () => {
   it('Verify User As Owner', () => {
-    expect(verify.verifyOwner('jason-edstrom')).toBe(true)
+    expect(verify.verifyOwner('InstaCode')).toBe(true)
   })
 })
