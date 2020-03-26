@@ -1,4 +1,4 @@
-import * as verify from '../src/verify'
+import * as verify from '../main/verify'
 
 describe('Verify User Tests', function () {
   it('Verify User As True', () => {
