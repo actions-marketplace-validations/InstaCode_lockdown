@@ -15,7 +15,11 @@ describe('Verify User Tests', function () {
 })
 
 describe('Verify Owner Tests', () => {
-  it('Verify User As Owner', () => {
+  it('Verify User Is The Owner', () => {
     expect(verify.verifyOwner('InstaCode')).toBe(true)
+  })
+  
+  it('Verify User Is Not The Owner', () => {
+    expect(verify.verifyOwner('fake-user')).toBe(false)
   })
 })
