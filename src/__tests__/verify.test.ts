@@ -4,7 +4,7 @@ describe('Verify User Tests', function () {
   it('Verify User As True', () => {
     expect(
       verify.verifyUser('jason-edstrom', 'jason-edstrom, dependabot-preview')
-    ).toBe(true)
+    ).toBe(true);
   })
 
   it('Verify User As False', () => {
@@ -18,7 +18,7 @@ describe('Verify Owner Tests', () => {
   it('Verify User Is The Owner', () => {
     expect(verify.verifyOwner('InstaCode')).toBe(true)
   })
-  
+
   it('Verify User Is Not The Owner', () => {
     expect(verify.verifyOwner('fake-user')).toBe(false)
   })
