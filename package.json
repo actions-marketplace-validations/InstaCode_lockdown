@@ -43,7 +43,7 @@
     "@typescript-eslint/typescript-estree": "^2.30.0",
     "@zeit/ncc": "^0.22.1",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-github": "^3.4.1",
     "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-prettier": "^3.1.3",
