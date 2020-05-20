@@ -4,7 +4,7 @@ describe('Verify User Tests', function () {
   it('Verify User As True', () => {
     expect(
       verify.verifyUser('jason-edstrom', 'jason-edstrom, dependabot-preview')
-    ).toBe(true);
+    ).toBe(true)
   })
 
   it('Verify User As False', () => {
