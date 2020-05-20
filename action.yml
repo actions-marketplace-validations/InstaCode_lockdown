@@ -8,6 +8,9 @@ inputs:
   users:
     description: list of users allowed to have builds executed
     required: true
+  strict:
+    description: repo owners are held to the same rules
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
