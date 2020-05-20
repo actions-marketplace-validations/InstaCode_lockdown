@@ -7,7 +7,7 @@ const username = github.context.actor
 function run(): void {
   try {
     core.info(
-      'Verifying that username ${username} is approved for running builds'
+      `Verifying that username (${username}) is approved for running builds`
     )
     const usernames = core.getInput('users').trim()
     core.debug(usernames)
