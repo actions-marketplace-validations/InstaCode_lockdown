@@ -1,0 +1,12 @@
+name-template: 'v$NEXT_MINOR_VERSION'
+tag-template: 'v$NEXT_MINOR_VERSION'
+change-template: "* $TITLE (#$NUMBER)"
+categories:
+  - title: 'Bug Fixes'
+    label: 'bug'
+  - title: 'Maintenance'
+    label: 'dependencies'
+template: |
+  ## What’s Changed
+
+  $CHANGES
