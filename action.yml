@@ -7,7 +7,7 @@ branding:
 inputs:
   users:
     description: list of users allowed to have builds executed
-    required: true
+    required: false
   strict:
     description: repo owners are held to the same rules
     required: false
