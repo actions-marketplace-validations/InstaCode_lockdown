@@ -2,21 +2,20 @@ import * as core from '@actions/core'
 import * as github from '@actions/github'
 import * as verify from './verify'
 
-
 const username = github.context.actor
 const strictKey = 'strict'
 const usersKey = 'users'
 let verified = false
 function run(): void {
   try {
+    core.info(
+      `Verifying that username (${username}) is approved for running builds`
+    )
     const strict = Boolean(core.getInput(strictKey))
     if (!strict) {
       core.info('Checking repo ownership against author')
       verified = verify.verifyOwner(username)
     }
-    core.info(
-      `Verifying that username (${username}) is approved for running builds`
-    )
     if (!verified || strict) {
       const usernames = core.getInput(usersKey).trim()
       core.debug(usernames)
